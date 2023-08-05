@@ -30,6 +30,7 @@ class HTTPHeaderAcceptEncoding(FuzzableBlock):
             self.push(String("type-" + e, e, max_len=4096))
             self.push(Delim("comma-" + e, ","))
             self.push(Delim("space-" + e, " "))
+        self.push(String("type-" + request[-1], request[-1], max_len=4096))
         self.push(Static("crlf", "\r\n"))
 
 
